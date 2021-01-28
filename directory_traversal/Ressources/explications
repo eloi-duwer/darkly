@@ -1,0 +1,13 @@
+L'accès aux différentes pages se fait grace au paramètre "page" dans l'url.
+
+On peut facilement imaginer que le serveur, à la réception d'une requête,
+regarde dans un dossier un fichier avec ce nom, et le renvoie s'il est trouvé
+
+On devrait donc pouvoir faire une attaque de directory traversal,
+c'est-a-dire accéder à des fichiers en dehors de ce dossier.
+
+On voit rapidement qu'en faisant des requêtes du type http://192.168.165.84/index.php?page=../../
+on a dans une alert les textes 'Wrong...', 'You can DO it !!!  :]'
+
+Après beaucoup d'essai a l'aveugle l'url http://192.168.165.84/index.php?page=../../../../../../../../etc/passwd renvoie bien un flag,
+je ne sais pas trop si d'autres fichiers sont accessibles, mais celui-ci est déjà très intéréssant...

@@ -1,0 +1,7 @@
+Sur la page http://192.168.165.84/?page=survey#
+nous avons plusieurs select, servant apparement à donner des notes aux membres du staff
+
+En inspectant la page nous trouvons sur les select ceci: onchange="javascript:this.form.submit();"
+Le formulaire est envoyé dès qu'un nombre est changé, visiblement sans contrôle sur la note
+On peut donc changer la valeur de la note dans une des options, pour donner des notes impossibles aux membres du staf :)
+Apparement mettre une valeur supérieure à 10 suffit pour nous donner le flag

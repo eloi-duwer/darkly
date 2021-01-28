@@ -1,0 +1,13 @@
+On peut uploader une image sur la page http://192.168.165.84/?page=upload#
+
+Quelque chose d'intéréssant ici serait de réussir à uploader un fichier autre qu'une image:
+a priori le serveur refuse les upload de fichiers autres que jpg/jpeg
+
+Mais en fait il ne contrôle que le Content-Type du fichier, et rien d'autre.
+
+On peut donc lancer l'upload du fichier payload.php, il est refusé.
+
+Dans l'onglet "réseau" des outils de développement de Firefox on peut faire clic droit sur la requête puis "Modifier et renvoyer"
+Dans cette fenêtre on peut donc modifier le Corps de la requête, et mettre le Content-Type du fichier à "image/jpeg" pour faire passer le fichier pour une image
+
+En cliquant sur "Envoyer" on voit en examinant la réponse dans les outils de développement le flag est donné

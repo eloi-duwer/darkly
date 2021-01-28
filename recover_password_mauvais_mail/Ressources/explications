@@ -1,0 +1,9 @@
+La page de récupération de mot de passe http://192.168.165.84/index.php?page=recover
+possède un input caché donnant le mail de l'administrateur chargé de changer le mot de passe
+
+On peut le voir en inspectant la page (Clic droit + 'inspecter', ou F12 en général),
+Et en ciblant le bouton submit on voit ce champ:
+
+<input type="hidden" name="mail" value="webmaster@borntosec.com" maxlength="15">
+
+On peut modifier ce mail depuis l'inspecteur, et en cliquant sur submit nous sommes redirigés vers le flag

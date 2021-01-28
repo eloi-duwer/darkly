@@ -1,0 +1,8 @@
+On remarque que sur le site nous avons un cookie "I_am_admin", a la valeur 68934a3e9455fa72420237eb05902327
+
+Une recherche sur internet nous indique que "68934a3e9455fa72420237eb05902327" est le hash md5 de "false"
+
+Nous pouvons donc modifier le cookie pour qu'il contienne le md5 de "true", b326b5062b2f0e69046810717534cb09,
+en tapant dans la console: document.cookie = "I_am_admin=b326b5062b2f0e69046810717534cb09"
+
+En rechargant la page le flag est affiché

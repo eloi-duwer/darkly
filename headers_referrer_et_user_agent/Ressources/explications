@@ -1,0 +1,18 @@
+Au premier abord la page de copyright (http://192.168.165.84/?page=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c)
+ne contient rien d'intéréssant
+
+Cependant si on regarde la source du fichier (ctrl + U sur la page), on voit que la page est remplie de commentaires.
+2 retiennent l'attention:
+- Ligne 643, qui nous indique ne nous devons venir de "https://www.nsa.gov/" pour la prochaine étape
+- Ligne 896, qui dit qu'utiliser le navigateur "ft_bornToSec" nous aidera beaucoup.
+
+Ces commentaires font référence a des headers http, respectivement referer et User-agent
+
+Nous pouvons donc essayer de recharger la page en changeant ces headers
+Il est possible d'installer des extensions sur un navigateur pour changer le header referer,
+mais au final le plus simple est d'utiliser curl:
+
+curl 192.168.165.84/?page=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c \
+	--referer "https://www.nsa.gov/" --user-agent ft_bornToSec --output file.html
+
+En ouvrant la page renvoyée nous avons le flag

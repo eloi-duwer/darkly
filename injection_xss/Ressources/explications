@@ -1,0 +1,17 @@
+La page http://192.168.165.84/?page=feedback permet de laisser un commentaire sur la page.
+
+On s'apperçoit rapidement que le champ "Name" n'est pas sanitarisé,
+ce qui veut dire que son contenu est directement stocké et réaffiché.
+
+On peut par exemple mettre dans le champ Name "<h1>a</h1>",
+et en cliquant sur "sign guestbook" notre message apparaît en dessous, mais le nom est en gras
+
+Cela s'ignifie que la balise html h1 du nom à bien été enregistrée.
+Cependant pour déclencher l'affichage du flag il suffit de faire en sorte que le code html résultant de l'injection soit invalide,
+Donc simplement mettre "<" dans le nom déclenche l'affichage du flag.
+
+On remarque que le champ Commentaire est au moins un peu mieux sanitarisé,
+les balises que l'on peut essayer de rentrer n'aparaissent pas.
+
+Cette faille est très dangereuse, car elle permet à un attaquant d'éxécuter du code javaScript arbitraire sur la page de tout ceux qui verront
+Le commentaire, lui permettant par exemple de récupérer les tokens de sessions de bcp d'utilisateurs sans difficultés

@@ -1,0 +1,7 @@
+Le footer du Site contient des liens vers différents réseaux sociaux.
+
+On remarque que l'adresse de ces liens est de la forme http://192.168.165.84/index.php?page=redirect&site=facebook,
+
+Ce qui laisse sous-entendre que l'on peut modifier vers quel site ce lien pointe,
+et en effet si l'on modifie le lien, par exemple en http://192.168.165.84/index.php?page=redirect&site=nimporteQuelSite,
+Nous sommes redirigés vers le flag

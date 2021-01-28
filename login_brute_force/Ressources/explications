@@ -1,0 +1,9 @@
+A priori rien d'utilisable sur la page de login pour trouver un login/mdp, essayons le brute force...
+
+Je vais utiliser les 10k mot de passe les plus courants, d'après ce git: 
+https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10k-most-common.txt
+
+L'éxécution du script bruteForce.js renvoie assez rapidement un résultat positif pour le user Root et mot de passe shadow,
+heureusement il n'était pas tout en bas de la liste!
+
+Le flag est donné quand on rentre le bon user/mdp, il est loggé par le script

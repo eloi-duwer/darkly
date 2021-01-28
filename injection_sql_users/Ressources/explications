@@ -1,0 +1,32 @@
+La page http://192.168.165.84/?page=member possède un champ de recherche, mais il ne fonctionne que si on rentre des nombres.
+
+Visiblement c'est du MySql, nous allons donc tester quelques injections sql :p
+
+En mettant dans le champ: 1 or true
+nous avons tout les utilisateurs, dont un nommé GetThe Flag...
+
+L'étape suivante est de trouver la structuration des tables, leurs colonnes...
+Ce thread monre la marche a suivre:
+https://stackoverflow.com/questions/1526688/get-table-column-names-in-mysql
+
+Requête suivante:
+
+1 AND false UNION SELECT table_name, column_name FROM information_schema.columns
+
+Nous avons bien la liste des tables / colonnes, dont une intéréssante: users,
+essayons de voir ce que contiennent les autres champs de la table:
+
+1 AND false UNION SELECT user_id, Commentaire FROM users
+
+Pour le user_id 5, qui est GetThe Flag, nous avons en commentaire:
+"Decrypt this password -> then lower all the char. Sh256 on it and it's good !"
+
+Le mot de passe est dans le champ countersign:
+1 AND false UNION SELECT user_id, countersign FROM users where user_id = 5
+
+le mot de passe est 5ff9d0165b4f92b14994e5c685cdce28
+
+Une recherche du mot de passe sur internet montre que c'est le md5 de 'FortyTwo'
+
+Le sha256 de 'fortytwo' est 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5,
+d'après les instructions en commentaire c'est donc le flag

@@ -1,0 +1,23 @@
+Un ficher souvent présent sur les sites internets est le robots.txt, qui est utilisé par les moteurs de recherche pour indexer les pages du site
+
+Nous essayons donc l'url http://192.168.165.84/robots.txt
+
+2 lignes sont dans ce fichier:
+Disallow: /whatever
+Disallow: /.hidden
+
+Pour cette faille nous n'allons regarder que /whatever:
+
+La navigation sur la page http://192.168.165.84/whatever/ nous donne un fichier htpasswd, contenant ceci:
+root:8621ffdbc5698829397d97767ac13db3
+
+Comme d'habitude le mot de passe sur internet nous montre que le mot de passe est le hash md5 de dragon
+
+Il ne reste plus qu'a trouver ou l'utiliser...
+
+Après un peu de tatonnements, on finit par trouver l'url http://192.168.165.84/admin/, plutot classique.
+
+username:root,
+password:dragon
+
+et nous avons le flag

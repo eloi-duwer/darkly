@@ -1,0 +1,17 @@
+Comme pour robot_htpasswd, on regarde le fichier robots.txt, et on voit une url: .hidden
+
+Nous allons donc à l'url http://192.168.165.84/.hidden/
+
+Visiblement il contient bcp de dossiers et sous-dossiers et sous-sous-sous-dossiers,
+contenant chacuns un README.
+
+En essayant quelques chemins nous avons toujours le même README, contenant la phrase :
+Non ce n'est toujours pas bon ...
+Ou quelques variantes
+
+Nous allons donc coder un petit scrapper qui ira lire tout les README, jusqu'à trouver le bon.
+
+Avant de connaitre le flag et tout le contenu des différents README je ne sais pas comment savoir si c'est le bon,
+donc le scrapper se contente de faire la liste des phrases rencontrées dans les README, avec le nombre de fois ou elle a été rencontrée
+
+Par chance il n'y a pas bcp de phrases différentes, et le flag est facile a trouver.

